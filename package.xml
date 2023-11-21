@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>go1_cam</name>
+    <version>0.1.0</version>
+    <description>Unitree Go1 Camera Driver</description>
+
+    <maintainer email="qiayuanl@berkeley.edu">Qiayuan Liao</maintainer>
+    <license>MIT</license>
+    <url type="website">https://github.com/qiayuanliao/go1_cam</url>
+    <author email="qiayuanl@berkeley.edu">Qiayuan Liao</author>
+
+    <buildtool_depend>catkin</buildtool_depend>
+
+    <depend>roscpp</depend>
+    <depend>image_transport</depend>
+    <depend>camera_info_manager</depend>
+    <depend>cv_bridge</depend>
+
+</package>
