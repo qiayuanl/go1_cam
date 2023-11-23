@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+
+<launch>
+    <node pkg="go1_cam" type="go1_cam" name="go1_cam_0">
+        <param name="device" value="0"/>
+    </node>
+    <node pkg="go1_cam" type="go1_cam" name="go1_cam_1">
+        <param name="device" value="2"/>
+    </node>
+    <node pkg="go1_cam" type="go1_cam" name="go1_cam_2">
+        <param name="device" value="4"/>
+    </node>
+        <node pkg="go1_cam" type="go1_cam" name="go1_cam_3">
+            <param name="device" value="6"/>
+        </node>
+</launch>

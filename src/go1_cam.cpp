@@ -11,14 +11,15 @@
 int main(int argc, char* argv[]) {
   ros::init(argc, argv, "go1_cam");
 
-  int deviceNode = 2;             // default 0 -> /dev/video0
-  cv::Size frameSize(1856, 800);  // defalut image size: 1856 X 800
-  int fps = 30;
-
-  UnitreeCamera cam(deviceNode);
+  ros::NodeHandle nh("~");
+  int device = 0;  // default 0 -> /dev/video0
+  nh.getParam("device", device);
+  UnitreeCamera cam(device);
   if (!cam.isOpened()) {
     exit(EXIT_FAILURE);
   }
+  cv::Size frameSize(1856, 800);  // defalut image size: 1856 X 800
+  int fps = 30;
   cam.setRawFrameSize(frameSize);
   cam.setRawFrameRate(fps);
 
@@ -45,7 +46,7 @@ int main(int argc, char* argv[]) {
 
   cam.startCapture();  // start camera capturing
 
-  while (cam.isOpened()) {
+  while (cam.isOpened() && ros::ok()) {
     std::chrono::microseconds t;
     if (!cam.getRawFrame(frame, t)) {  // get camera raw image
       usleep(1000);
